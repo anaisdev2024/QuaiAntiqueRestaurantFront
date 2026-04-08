@@ -11980,6 +11980,11 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+p {
+  font-family: "Hind Madurai", serif;
+  font-size: 18px;
+}
+
 html {
   position: relative;
   min-height: 100%;

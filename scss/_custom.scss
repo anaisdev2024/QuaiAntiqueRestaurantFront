@@ -7,9 +7,14 @@ $secondary: #B6AC97;
 $dark: #392C1E;
 $black: #292222;
 $font-family-base:"Montserrat", sans-serif;
-$font-family-serif:"Hind Madurai", serif !default;
+$font-family-serif:"Hind Madurai", serif;
 
 
 @import "../node_modules/bootstrap/scss/bootstrap";
+
+p {
+  font-family: $font-family-serif;
+  font-size: 18px;
+}
 
 // Then add additional custom code here
