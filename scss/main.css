@@ -12024,4 +12024,8 @@ footer.footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.text-justify {
+  text-align: justify !important;
 }/*# sourceMappingURL=main.css.map */
