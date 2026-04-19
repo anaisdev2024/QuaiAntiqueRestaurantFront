@@ -12077,4 +12077,227 @@ footer.footer {
   display: block;
   color: #292222;
   padding: 10px;
+}
+
+/* ================================================
+    Ajouter via Claude carte.css – Page La Carte | Quai Antique
+   Utilise les variables de custom.scss
+   ================================================ */
+/* ── Variables (issues de custom.scss) ── */
+:root {
+  --primary: #906427;
+  --secondary: #B6AC97;
+  --dark: #392C1E;
+  --black: #292222;
+  --creme: #f7f3ee;
+}
+
+/* ── Séparateur doré ── */
+.divider-primary {
+  width: 56px;
+  height: 2px;
+  background: var(--primary);
+  margin: 0.75rem auto;
+}
+
+/* ════════════════════════════════
+   FORMULES
+════════════════════════════════ */
+.formule-box {
+  background: var(--dark);
+  color: #fff;
+  border-radius: 4px;
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  height: 100%;
+  transition: transform 0.2s;
+}
+
+.formule-box:hover {
+  transform: translateY(-4px);
+}
+
+.formule-box.featured {
+  background: var(--primary);
+}
+
+.formule-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.formule-prix {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.4rem;
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.1;
+}
+
+.formule-detail {
+  font-size: 0.85rem !important;
+  opacity: 0.85;
+  margin-bottom: 0;
+  color: #fff;
+}
+
+/* ════════════════════════════════
+   TITRES DE SECTION
+════════════════════════════════ */
+.section-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin-bottom: 0;
+}
+
+.section-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0;
+}
+
+.sub-category {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  border-bottom: 1px solid rgba(182, 172, 151, 0.5);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+/* ════════════════════════════════
+   ONGLETS (TABS)
+════════════════════════════════ */
+.nav-tabs-carte {
+  border-bottom: 2px solid var(--primary);
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.nav-tabs-carte .nav-link {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--black) !important;
+  border: none;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  padding: 0.6rem 1.25rem;
+  border-radius: 0;
+  transition: all 0.2s;
+}
+
+.nav-tabs-carte .nav-link:hover {
+  color: var(--primary) !important;
+}
+
+.nav-tabs-carte .nav-link.active {
+  color: var(--primary) !important;
+  border-bottom: 3px solid var(--primary);
+  background: transparent;
+}
+
+/* ════════════════════════════════
+   LIGNES DE PLATS
+════════════════════════════════ */
+.plat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(182, 172, 151, 0.3);
+  transition: background 0.15s;
+}
+
+.plat-row:last-child {
+  border-bottom: none;
+}
+
+.plat-row:hover {
+  background: rgba(144, 100, 39, 0.04);
+}
+
+.plat-nom {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--dark);
+  margin-bottom: 0.2rem;
+}
+
+.plat-desc {
+  font-family: "Hind Madurai", serif;
+  font-size: 0.9rem !important;
+  color: #7a6a55;
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+.plat-prix {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--primary);
+  white-space: nowrap;
+  margin-left: 1rem;
+}
+
+/* ── Badge allergènes ── */
+.badge-allergen {
+  display: inline-block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.6rem;
+  font-weight: 500;
+  background: rgba(144, 100, 39, 0.1);
+  color: var(--primary);
+  border: 1px solid rgba(144, 100, 39, 0.25);
+  border-radius: 20px;
+  padding: 1px 7px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+/* ════════════════════════════════
+   BOUTON RÉSERVER
+════════════════════════════════ */
+.btn-reserver {
+  background-color: var(--primary);
+  border: none;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  padding: 0.65rem 2rem;
+  color: #fff;
+  transition: background 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-reserver:hover {
+  background-color: var(--dark);
+  color: #fff;
+}
+
+.note-allergenes {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.72rem;
+  color: var(--secondary);
+  margin-bottom: 0;
 }/*# sourceMappingURL=main.css.map */
