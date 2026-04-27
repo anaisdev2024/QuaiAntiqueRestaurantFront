@@ -50,6 +50,7 @@ const LoadContentPage = async () => {
   }
 
   document.title = actualRoute.title + " - " + websiteName;
+
 };
 
 window.onpopstate = LoadContentPage;
