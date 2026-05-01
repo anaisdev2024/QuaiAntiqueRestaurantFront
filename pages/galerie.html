@@ -6,7 +6,7 @@
 
 <div class="container">
     <div class="text-center">
-        <button type="button" class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#EditionPhotoModal">Ajouter une photo </button>
+        <button data-show="admin" type="button" class="btn btn-primary"data-bs-toggle="modal" data-bs-target="#EditionPhotoModal">Ajouter une photo </button>
     </div>
     <div class ="row row-cols-2 row-cols-lg-3 ">
         <div class="col p-3">
@@ -21,7 +21,7 @@
             <div class="image-card text-white">
                 <img src="../images/agneau.jpg" class="w-100 rounded w100"/>
                 <p class="titre-image">Notre agneau</p>
-                <div class="action-image-buttons">
+                <div class="action-image-buttons"data-show="admin">
                     <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#EditionPhotoModal"><i class="bi bi-pencil-square"></i></button>
                     <button type="button" class="btn btn-outline-light"data-bs-toggle="modal" data-bs-target="#DeletePhotoModal"><i class="bi bi-trash"></i></button>
                 </div>

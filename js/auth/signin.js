@@ -25,3 +25,15 @@ function checkCredentials() {
         passwordInput.classList.add("is-invalid");
     }     
 }  
+document.getElementById("togglePassword").addEventListener("click", () => {
+  const input = document.getElementById("PasswordInput");
+  const icon = document.getElementById("togglePasswordIcon");
+
+  if (input.type === "password") {
+    input.type = "text";
+    icon.classList.replace("bi-eye", "bi-eye-slash");
+  } else {
+    input.type = "password";
+    icon.classList.replace("bi-eye-slash", "bi-eye");
+  }
+});
