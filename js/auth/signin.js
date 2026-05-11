@@ -1,34 +1,56 @@
 const mailInput = document.getElementById("EmailInput");
 const passwordInput = document.getElementById("PasswordInput");
 const btnSignin = document.getElementById("btnSignin");
+const signinForm = document.getElementById("signinForm");
 
 btnSignin.addEventListener("click", checkCredentials);
 
 function checkCredentials() {
-    //Ici il faudra appeler une API pour vérifier les identifiants de l'utilisateur
-    if(mailInput.value == "test@orange.fr" && passwordInput.value == "123"){
-    alert("Vous êtes connecté !");
+  let dataForm = new FormData(signinForm);
+  let myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
 
-    //Il faudra récupérer le vrai token
+  let raw = JSON.stringify({
+    "username": dataForm.get("email"),
+    "password": dataForm.get("mdp")
+  });
 
-        const token = "lkjsdngfljsqdnglkjsdbglkjqskjgkfjgbqslkfdgbskldfgdfgsdgf";
-     
-    
-    //placer ce token en cookie
-    setToken(token);
+  let requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+  };
 
-    setCookie(RoleCookieName, "admin", 7);
-    window.location.replace("/");
+  fetch(apiUrl + "login", requestOptions)
+    .then(response => {
+      return response.text().then(text => {
+        if (response.ok) {
+          try {
+            return JSON.parse(text);
+          } catch (e) {
+            return null;
+          }
+        } else {
+          mailInput.classList.add("is-invalid");
+          passwordInput.classList.add("is-invalid");
+          return null;
+        }
+      });
+    })
+    .then(result => {
+      if (!result) return;
+      const token = result.apiToken;
+      setToken(token);
+      setCookie(RoleCookieName, result.roles?.[0] ?? "", 7);
+      window.location.href = "/";
+    })
+    .catch(error => console.log('error', error));
 }
-    else{
-        mailInput.classList.add("is-invalid");
-        passwordInput.classList.add("is-invalid");
-    }     
-}  
+
 document.getElementById("togglePassword").addEventListener("click", () => {
   const input = document.getElementById("PasswordInput");
   const icon = document.getElementById("togglePasswordIcon");
-
   if (input.type === "password") {
     input.type = "text";
     icon.classList.replace("bi-eye", "bi-eye-slash");

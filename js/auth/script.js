@@ -1,6 +1,7 @@
 const tokenCookieName = "accesstoken";
 const signoutBtn = document.getElementById("signout-btn");
 const RoleCookieName = "role";
+const apiUrl = "http://localhost:8000/api/"; //à adapter selon votre configuration (port, chemin d'accès, etc.)
 
 function getRole(){
     return getCookie(RoleCookieName);
