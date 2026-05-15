@@ -29,6 +29,7 @@ function checkCredentials() {
           try {
             return JSON.parse(text);
           } catch (e) {
+            console.error('Invalid JSON response:', e);
             return null;
           }
         } else {
