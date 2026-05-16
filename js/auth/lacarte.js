@@ -1,14 +1,19 @@
-const apiUrl = "http://127.0.0.1:8000/api/";
+if (typeof platApiUrl === 'undefined') {
+    var platApiUrl = "http://127.0.0.1:8000/api/";
+}
 
 async function chargerPlats() {
-    const response = await fetch(apiUrl + "plats");
+    const response = await fetch(platApiUrl + "plats");
     const plats = await response.json();
 
-    // Vider les conteneurs existants
-    document.querySelectorAll('[id^="tab-"]').forEach(el => {
-        // garde les titres, supprime les plat-row
-        el.querySelectorAll('.plat-row').forEach(r => r.remove());
-    });
+    const mapping = {
+        "Froides": "froides",
+        "Chaudes": "chaudes",
+        "Poissons et Crustaces": "poissons-et-crustaces",
+        "Viandes et Gibiers": "viandes-et-gibiers",
+    };
+
+    let dessertCount = 0;
 
     plats.forEach(plat => {
         const allergenes = (plat.allergenes ?? [])
@@ -24,16 +29,18 @@ async function chargerPlats() {
                 <span class="plat-prix">${plat.prix} EUR</span>
             </div>`;
 
-        // Trouver le bon conteneur selon catégorie + sousCategorie
-        const sousId = plat.sousCategorie
-            ? plat.sousCategorie.toLowerCase().replace(/\s+/g, '-').replace(/[éè]/g, 'e')
-            : plat.categorie;
+        let conteneurId;
 
-        const conteneur = document.getElementById(sousId) 
-            ?? document.getElementById(plat.categorie);
+        if (plat.categorie === "desserts") {
+            conteneurId = dessertCount % 2 === 0 ? "desserts-col1" : "desserts-col2";
+            dessertCount++;
+        } else {
+            conteneurId = mapping[plat.sousCategorie] ?? plat.categorie;
+        }
 
+        const conteneur = document.getElementById(conteneurId);
         if (conteneur) conteneur.insertAdjacentHTML('beforeend', html);
     });
 }
 
-document.addEventListener('DOMContentLoaded', chargerPlats);
+chargerPlats();

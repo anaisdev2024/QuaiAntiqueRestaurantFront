@@ -1,4 +1,3 @@
-alert("test");
 const galeriImage = document.getElementById("allImages");
 
 //recuperer les informations des images
